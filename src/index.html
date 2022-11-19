@@ -15,41 +15,38 @@
         <button id="new-deck" class="bg-yellow-400 px-5 py-1">
           New Deck, Please!
         </button>
-        <p class="text-white text-lg">Remaining cards: 52</p>
+        <p class="text-white text-lg" id="remaining">Remaining cards: __</p>
       </div>
       <div class="w-full flex justify-center">
         <p class="text-white text-4xl font-semibold">War!</p>
       </div>
-      <div
-        id="cards"
-        class="flex flex-col justify-between items-center gap-2 flex-grow py-2"
-      >
-        <div id="deck1" class="flex flex-col items-center">
-          <div class="w-full flex justify-center">
-            <p class="text-white text-2xl font-medium">Computer: 0</p>
+      <div class="flex flex-col flex-grow justify-center">
+        <div
+          id="cards"
+          class="flex flex-col justify-center items-center gap-10 p-2 bg-white/50 rounded-lg"
+        >
+          <div id="deck0" class="flex flex-col items-center gap-2">
+            <div class="w-full flex justify-center">
+              <p class="text-gray-700 text-2xl font-medium" id="computer-score">Computer: 0</p>
+            </div>
+            <div
+              id="image0"
+              class="border-2 border-gray-700 rounded-lg w-[120px] h-[calc(119px_*_7/5)] box-content flex items-center"
+            ></div>
           </div>
-          <div
-            id="image1"
-            class="border-2 rounded-lg w-[120px] h-[171px]"
-          ></div>
-        </div>
-        <div id="deck2" class="flex flex-col items-center">
-          <div
-          id="image2"
-          class="border-2 rounded-lg w-[120px] h-[171px]"
-          ></div>
-          <div class="w-full flex justify-center">
-            <p class="text-white text-2xl font-medium">Me: 0</p>
+          <div id="deck1" class="flex flex-col items-center gap-2">
+            <div
+              id="image1"
+              class="border-2 border-gray-700 rounded-lg w-[120px] h-[calc(119px_*_7/5)] box-content flex items-center""
+            ></div>
+            <div class="w-full flex justify-center">
+              <p class="text-gray-700 text-2xl font-medium" id="me-score">Me: 0</p>
+            </div>
           </div>
         </div>
       </div>
       <div class="flex w-full">
-        <button
-          id="draw-cards"
-          class="bg-yellow-400 py-1 w-full"
-        >
-          Draw
-        </button>
+        <button id="draw-cards" class="bg-yellow-400 py-1 w-full">Draw</button>
       </div>
     </div>
     <script src="./app.js"></script>
