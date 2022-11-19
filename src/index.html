@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Card Wars</title>
+    <link rel="stylesheet" href="../dist/output.css" />
+  </head>
+  <body class="min-h-screen">
+    <div
+      class="bg-[url('../images/table.jpg')] bg-cover min-h-screen flex items-center justify-center relative"
+    >
+      <button
+        id="new-deck"
+        class="bg-yellow-400 px-5 py-1 absolute top-0 left-0"
+      >
+        New Deck, Please!
+      </button>
+      <button
+        id="draw-cards"
+        class="bg-yellow-400 py-1 w-full absolute bottom-0"
+      >
+        Draw
+      </button>
+      <div
+        id="cards"
+        class="flex flex-col min-h-full justify-center items-center gap-2"
+      >
+        <div id="deck1" class="border-2 rounded-lg w-[150px] h-[214px]"></div>
+        <div id="deck2" class="border-2 rounded-lg w-[150px] h-[214px]"></div>
+      </div>
+    </div>
+    <script src="./app.js"></script>
+  </body>
+</html>

@@ -15,21 +15,17 @@ document.getElementById("draw-cards").addEventListener("click", () => {
     fetch(`https://apis.scrimba.com/deckofcards/api/deck/${deckId}/draw/?count=2`)
         .then(res => res.json())
         .then(data => {
-            console.log(data.cards)
-            document.getElementById("cards").innerHTML = `
-                <img src=${data.cards[0].image} />
-                <hr>
-                <img src=${data.cards[1].image} />
-            `
+            document.getElementById("deck1").innerHTML =
+                `<img src=${data.cards[0].image} class="w-[150px] h-[210px]"/>`
+            document.getElementById("deck2").innerHTML =
+                `<img src=${data.cards[1].image} class="w-[150px] h-[210px]"/>`
         })
 })
 
 /*
 
-1) puste pola jak nie ma kart
 2) score
 3) computer: score
 4) me: score
-5) tailwind css - najlepiej
 
 */
