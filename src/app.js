@@ -90,4 +90,7 @@ function handleRemaining(remainingNumber) {
 /* 
 TODO:
 1) add reset new game logic
+2) also disable draw btn when there is no deck
+3) who win info 
+4) ES8 - modify to use async/await - learn about it !
 */
