@@ -15,10 +15,10 @@ document.getElementById("draw-cards").addEventListener("click", () => {
     fetch(`https://apis.scrimba.com/deckofcards/api/deck/${deckId}/draw/?count=2`)
         .then(res => res.json())
         .then(data => {
-            document.getElementById("deck1").innerHTML =
-                `<img src=${data.cards[0].image} class="w-[150px] h-[210px]"/>`
-            document.getElementById("deck2").innerHTML =
-                `<img src=${data.cards[1].image} class="w-[150px] h-[210px]"/>`
+            document.getElementById("image1").innerHTML =
+                `<img src=${data.cards[0].image} class="w-[120px] h-[167px]"/>`
+            document.getElementById("image2").innerHTML =
+                `<img src=${data.cards[1].image} class="w-[120px] h-[167px]"/>`
         })
 })
 

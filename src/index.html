@@ -9,26 +9,47 @@
   </head>
   <body class="min-h-screen">
     <div
-      class="bg-[url('../images/table.jpg')] bg-cover min-h-screen flex items-center justify-center relative"
+      class="bg-[url('../images/table.jpg')] bg-cover min-h-screen flex flex-col items-center justify-center relative"
     >
-      <button
-        id="new-deck"
-        class="bg-yellow-400 px-5 py-1 absolute top-0 left-0"
-      >
-        New Deck, Please!
-      </button>
-      <button
-        id="draw-cards"
-        class="bg-yellow-400 py-1 w-full absolute bottom-0"
-      >
-        Draw
-      </button>
+      <div class="flex justify-start w-full gap-2 items-center">
+        <button id="new-deck" class="bg-yellow-400 px-5 py-1">
+          New Deck, Please!
+        </button>
+        <p class="text-white text-lg">Remaining cards: 52</p>
+      </div>
+      <div class="w-full flex justify-center">
+        <p class="text-white text-4xl font-semibold">War!</p>
+      </div>
       <div
         id="cards"
-        class="flex flex-col min-h-full justify-center items-center gap-2"
+        class="flex flex-col justify-between items-center gap-2 flex-grow py-2"
       >
-        <div id="deck1" class="border-2 rounded-lg w-[150px] h-[214px]"></div>
-        <div id="deck2" class="border-2 rounded-lg w-[150px] h-[214px]"></div>
+        <div id="deck1" class="flex flex-col items-center">
+          <div class="w-full flex justify-center">
+            <p class="text-white text-2xl font-medium">Computer: 0</p>
+          </div>
+          <div
+            id="image1"
+            class="border-2 rounded-lg w-[120px] h-[171px]"
+          ></div>
+        </div>
+        <div id="deck2" class="flex flex-col items-center">
+          <div
+          id="image2"
+          class="border-2 rounded-lg w-[120px] h-[171px]"
+          ></div>
+          <div class="w-full flex justify-center">
+            <p class="text-white text-2xl font-medium">Me: 0</p>
+          </div>
+        </div>
+      </div>
+      <div class="flex w-full">
+        <button
+          id="draw-cards"
+          class="bg-yellow-400 py-1 w-full"
+        >
+          Draw
+        </button>
       </div>
     </div>
     <script src="./app.js"></script>
