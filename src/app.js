@@ -37,38 +37,45 @@ function handleClick() {
 newDeckBtn.addEventListener("click", handleClick)
 
 drawCardsBtn.addEventListener("click", () => {
-    fetch(`https://apis.scrimba.com/deckofcards/api/deck/${deckId}/draw/?count=2`)
-        .then(res => res.json())
-        .then(data => {
-            handleRemaining(data.remaining)
-            data.cards.map((card, index) => {
-                document.getElementById(`image${index}`).innerHTML = `<img src=${card.image} class="w-[120px] h-[167px]"/>`
+    if (!deckId) {
+        alert("Take new deck first!")
+    } else if (deckId && remainingCards > 0) {
+        fetch(`https://apis.scrimba.com/deckofcards/api/deck/${deckId}/draw/?count=2`)
+            .then(res => res.json())
+            .then(data => {
+                handleRemaining(data.remaining)
+                if (data.remaining === 0) {
+                    drawCardsBtn.innerHTML = "Start new game"
+                }
+                data.cards.map((card, index) => {
+                    document.getElementById(`image${index}`).innerHTML = `<img src=${card.image} class="w-[120px] h-[167px]"/>`
+                })
+                return data.cards
             })
-            return data.cards
-        })
-        .then(cards => {
-            let computerCard = getGeneralValue(cards[0].value)
-            let playerCard = getGeneralValue(cards[1].value)
+            .then(cards => {
+                let computerCard = getGeneralValue(cards[0].value)
+                let playerCard = getGeneralValue(cards[1].value)
 
-            if(computerCard > playerCard) {
-                computerScore++
-            } else if (computerCard < playerCard) {
-                meScore++
-            } else {
-                computerScore++
-                meScore++
-            }
+                if (computerCard > playerCard) {
+                    computerScore++
+                } else if (computerCard < playerCard) {
+                    meScore++
+                } else {
+                    computerScore++
+                    meScore++
+                }
 
-            computerScoreInfo.innerHTML = `Computer: ${computerScore}`
-            meScoreInfo.innerHTML = `Me: ${meScore}`
+                computerScoreInfo.innerHTML = `Computer: ${computerScore}`
+                meScoreInfo.innerHTML = `Me: ${meScore}`
 
-        })
+            })
+    }
 })
 
 function getGeneralValue(localValue) {
     let tempValue
-    cardValues.map((card,index) => {
-        if(card.value === localValue){
+    cardValues.map((card, index) => {
+        if (card.value === localValue) {
             tempValue = parseInt(cardValues[index].generalValue)
         }
     })
@@ -79,3 +86,8 @@ function handleRemaining(remainingNumber) {
     remainingCards = remainingNumber
     remainingInfo.innerHTML = `<p class="text-white text-lg" id="remaining">Remaining cards: ${remainingCards}</p>`
 }
+
+/* 
+TODO:
+1) add reset new game logic
+*/
