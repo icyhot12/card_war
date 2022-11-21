@@ -24,14 +24,23 @@ let cardValues = [
     { value: "KING", generalValue: "13" },
     { value: "ACE", generalValue: "14" }
 ]
+// fetch/then version
+// function handleClick() {
+//     fetch("https://apis.scrimba.com/deckofcards/api/deck/new/shuffle/")
+//         .then(res => res.json())
+//         .then(data => {
+//             deckId = data.deck_id
+//             handleRemaining(data.remaining)
+//         })
+// }
 
-function handleClick() {
-    fetch("https://apis.scrimba.com/deckofcards/api/deck/new/shuffle/")
-        .then(res => res.json())
-        .then(data => {
-            deckId = data.deck_id
-            handleRemaining(data.remaining)
-        })
+// fetch/async/await version
+
+async function handleClick() {
+    const fetchedData = await fetch("https://apis.scrimba.com/deckofcards/api/deck/new/shuffle/")
+    const response = await fetchedData.json()
+    deckId = response.deck_id
+    handleRemaining(response.remaining)
 }
 
 newDeckBtn.addEventListener("click", handleClick)
